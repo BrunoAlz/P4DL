@@ -17,5 +17,5 @@ class Product(models.Model):
         verbose_name = ("Produtos")
         verbose_name_plural = ("Produtos")
 
-    def __str__(self):
+    def __str__(self) -> str:
         return self.ProdutctsName
