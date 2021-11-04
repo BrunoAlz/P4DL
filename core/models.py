@@ -5,12 +5,12 @@ class TimeStampedModel(models.Model):
     """
     Model para controle de Criação e alteração de dados no Banco.
     """
-    CreationDate  = models.DateTimeField(
+    CreationDate = models.DateTimeField(
         'Criado em:',
         auto_now_add=True,
         auto_now=False
     )
-    ModificationDate  = models.DateTimeField(
+    ModificationDate = models.DateTimeField(
         'Modificado em:',
         auto_now_add=False,
         auto_now=True
@@ -24,4 +24,3 @@ class TimeStampedModel(models.Model):
         criados e a data de modificação assim que sofrerem alterações
         """
         abstract = True
-
