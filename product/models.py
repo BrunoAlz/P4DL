@@ -7,7 +7,7 @@ class Product(models.Model):
         max_length=100,
         unique=True
     )
-    Stock = models.IntegerField('Estoque Atual'),
+    CurrentStock  = models.IntegerField(verbose_name='Estoque Atual')
     MinimumStock = models.PositiveIntegerField(
         'Estoque Mínimo',
         default=0

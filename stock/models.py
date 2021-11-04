@@ -11,8 +11,8 @@ class Stock(TimeStampedModel):
     seja incluindo ou excluindo.. esse usuário está Herdando a classe User
     do Admin do Django
     """
-    ResponsibleUser = models.ForeignKey(User, on_delete=models.DO_NOTHING)
-    MovementStatus = models.CharField(max_length=1, choices=MOVIMENT)
+    ResponsibleUser = models.ForeignKey(User, on_delete=models.DO_NOTHING, verbose_name='Responsável')
+    MovementStatus = models.CharField(max_length=1, choices=MOVIMENT, verbose_name='Motivo')
 
     class Meta:
         ordering = ('-CreationDate',)
@@ -30,12 +30,14 @@ class StockItems(models.Model):
     saldo final.
     """
     FkStock = models.ForeignKey(Stock, on_delete=models.DO_NOTHING)
-    FkProduct = models.ForeignKey(Product, on_delete=models.DO_NOTHING)
-    Quantity = models.PositiveIntegerField()
-    Balance = models.PositiveIntegerField()
+    FkProduct = models.ForeignKey(Product, on_delete=models.DO_NOTHING, verbose_name='FkProduto')
+    Quantity = models.PositiveIntegerField(verbose_name='Quantidade')
+    Balance = models.PositiveIntegerField(verbose_name='Saldo')
 
     class Meta:
         ordering = ('pk',)
+        verbose_name = ("Itens do Estoque")
+        verbose_name_plural = ("Itens do Estoque")
 
     def __str__(self) -> str:
         return f'{self.pk} - {self.FkStock.pk} - {self.FkProduct}'
