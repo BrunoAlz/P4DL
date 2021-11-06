@@ -8,16 +8,15 @@
                 <li class="pcoded-hasmenu active pcoded-trigger">
                     <a href="javascript:void(0)" class="waves-effect waves-dark">
                     <span class="pcoded-micon"><i class="feather icon-home"></i></span>
-                    <span class="pcoded-mtext">Dashboards</span>
-                    
+                    <span class="pcoded-mtext">Dashboards</span>                    
                     </a>
                     <ul class="pcoded-submenu">
-                    <li class="active">
-                        <a href="" class="waves-effect waves-dark">
+                    <li class="pcoded-hasmenu pcoded-trigger">
+                        <a href="{% url 'core:index' %}" class="waves-effect waves-dark">
                         <span class="pcoded-mtext">Dashboard Geral</span>
                         </a>
                     </li>
-                    <li class="">
+                    <li class="pcoded-hasmenu pcoded-trigger">
                         <a href="dashboard-analytics.html" class="waves-effect waves-dark">
                         <span class="pcoded-mtext">Dashboard Analítico</span>
                         <!--
