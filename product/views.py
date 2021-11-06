@@ -1,5 +1,7 @@
-from django.shortcuts import render
 from .models import Product
+from .forms import ProductForm
+from django.shortcuts import render
+from django.views.generic import CreateView
 
 def list_product(request):
     template_name = 'product/list_product.html'
@@ -22,3 +24,9 @@ def detail_product(request, pk):
 def add_product(request):
     template_name = 'product/form_product.html'
     return render(request, template_name)
+
+
+class ProductCreate(CreateView):
+    model = Product
+    template_name = 'product/form_product.html'
+    form_class = ProductForm

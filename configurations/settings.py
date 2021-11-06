@@ -25,6 +25,9 @@ INSTALLED_APPS = [
     'core',
     'product',
     'stock',
+
+    'widget_tweaks',
+    
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
