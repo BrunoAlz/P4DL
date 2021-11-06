@@ -4,8 +4,8 @@
 {% block content %}
 
 <div class="card">
-	<div class="card-header text-primary font-weight-bold text-center">
-		<h4> {{detail.ProdutctsName}} </h4>
+	<div class="card-header text-primary text-center">
+		<h4 class="font-weight-bold"> {{detail.ProdutctsName}} </h4>
 	</div>
     <hr>
     
@@ -13,48 +13,73 @@
 		<div class="col-lg-6">
 			<ul class="basic-list">
 				<li class="">
-					<p class=" alert alert-success">
-                        <span class="h5">Quantidade em Estoque: 
-                        {{detail.CurrentStock}}                        
+					<p class=" alert alert-info">
+                        <span class="h5 font-weight-bold">Preço: 
+ 							<span classe="text-right">R${{detail.ProductPrice}}</span>
+                        </span> 
+                    </p>
+				</li>
+				<li class="">
+					<p class=" alert alert-info">
+                        <span class="h5 font-weight-bold">Data de Vencimento: 
+ 							{{detail.DueDate}}
+                        </span> 
+                    </p>
+				</li>
+				<li class="">
+					<p class=" alert alert-info">
+                        <span class="h5 font-weight-bold">Gênero: 
+ 							{{detail.FkGenre}}
+                        </span> 
+                    </p>
+				</li>
+				<li class="">
+					<p class=" alert alert-info">
+                        <span class="h5 font-weight-bold">Grupo: 
+ 							{{detail.FkGroup}}
+                        </span> 
+                    </p>
+				</li>
+				<li class="">
+					<p class=" alert alert-info">
+                        <span class="h5 font-weight-bold">Marca: 
+ 							{{detail.FkBrand}}
                         </span> 
                     </p>
 				</li>
                 <hr>
+				<li class="">
+					<p class=" alert alert-success">
+                        <span class="h5 font-weight-bold">Quantidade em Estoque: 
+                        <span classe="text-right">{{detail.CurrentStock}} </span>                       
+                        </span> 
+                    </p>
+				</li>
 				<li class="">
 					<p class=" alert alert-danger">
-                        <span class="h5">Estoque Mínimo: 
-                        {{detail.MinimumStock}}                        
+                        <span class="h5 font-weight-bold">Estoque Mínimo: 
+                        <span classe="text-right">{{detail.MinimumStock}} </span>                       
                         </span> 
                     </p>
 				</li>
-				<li class="">
-					<p>Laborum nihil aliquam nulla praesentium illo libero
-						nihil at odio maxime.
-					</p>
-				</li>
+				
 			</ul>
 		</div>
-        <div class="col-lg-6">
-			<ul class="basic-list">
-				<li class="">
-					<p>
-                        <span>Quantidade em Estoque: </span> 
-                        {{detail.CurrentStock}}
-                    </p>
-				</li>
-                <hr>
-				<li class="">
-					<p>
-                        <span>Estoque Minimo: </span> 
-                        {{detail.MinimumStock}}
-                    </p>
-				</li>
-				<li class="">
-					<p>Laborum nihil aliquam nulla praesentium illo libero
-						nihil at odio maxime.
-					</p>
-				</li>
-			</ul>
+        <div class="col-lg-3">
+			<img src="{{detail.ProductImage.thumb.url}}" class="img-fluid img-thumbnail" alt="">
+			<span class="h6">
+				<p class="mt-2"> 
+					<span class="font-weight-bold"> DESCRIÇÃO: </span>{{detail.Description}}
+				</p>
+			</span>
+		</div>
+		<div class="col-lg-3">
+			<img src="{{detail.ProductImage.thumb.url}}" class="img-fluid img-thumbnail" alt="">
+			<span class="h6">
+				<p class="mt-2"> 
+					<span class="font-weight-bold"> DESCRIÇÃO: </span>{{detail.Description}}
+				</p>
+			</span>
 		</div>
 	</div>
 </div>
