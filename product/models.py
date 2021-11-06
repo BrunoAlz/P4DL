@@ -1,3 +1,4 @@
+from django.urls import reverse
 from django.db import models
 
 
@@ -7,7 +8,7 @@ class Product(models.Model):
         max_length=100,
         unique=True
     )
-    CurrentStock  = models.IntegerField(verbose_name='Estoque Atual')
+    CurrentStock = models.IntegerField(verbose_name='Estoque Atual')
     MinimumStock = models.PositiveIntegerField(
         'Estoque Mínimo',
         default=0
@@ -19,3 +20,6 @@ class Product(models.Model):
 
     def __str__(self) -> str:
         return self.ProdutctsName
+
+    def get_absolute_url(self):
+        return reverse("product:detail_product", kwargs={"pk": self.pk})

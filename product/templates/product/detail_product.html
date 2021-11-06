@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="card">
+	<div class="card-header text-primary font-weight-bold text-center">
+		<h4> {{detail.ProdutctsName}} </h4>
+	</div>
+    <hr>
+    
+	<div class="row card-block">
+		<div class="col-lg-6">
+			<ul class="basic-list">
+				<li class="">
+					<p class=" alert alert-success">
+                        <span class="h5">Quantidade em Estoque: 
+                        {{detail.CurrentStock}}                        
+                        </span> 
+                    </p>
+				</li>
+                <hr>
+				<li class="">
+					<p class=" alert alert-danger">
+                        <span class="h5">Estoque Mínimo: 
+                        {{detail.MinimumStock}}                        
+                        </span> 
+                    </p>
+				</li>
+				<li class="">
+					<p>Laborum nihil aliquam nulla praesentium illo libero
+						nihil at odio maxime.
+					</p>
+				</li>
+			</ul>
+		</div>
+        <div class="col-lg-6">
+			<ul class="basic-list">
+				<li class="">
+					<p>
+                        <span>Quantidade em Estoque: </span> 
+                        {{detail.CurrentStock}}
+                    </p>
+				</li>
+                <hr>
+				<li class="">
+					<p>
+                        <span>Estoque Minimo: </span> 
+                        {{detail.MinimumStock}}
+                    </p>
+				</li>
+				<li class="">
+					<p>Laborum nihil aliquam nulla praesentium illo libero
+						nihil at odio maxime.
+					</p>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+{% endblock content %}

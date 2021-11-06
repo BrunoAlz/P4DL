@@ -67,53 +67,60 @@
             </div>
         </div>
     </div>
+    </div>
+    {% comment %} End of Widgets ROW {% endcomment %}
 
-    <div class="col-xl-4 col-md-12">
-        <div class="card comp-card">
-            <div class="card-body">
-                <div class="row align-items-center">
-                <div class="col">
-                    <h6 class="m-b-25">Impressions</h6>
-                    <h3 class="f-w-700 text-c-blue">1,563</h3>
-                    <p class="m-b-0">May 23 - June 01 (2017)</p>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card table-card">
+                <div class="card-header">
+                    <div class="card-header-right">
+                        <ul class="list-unstyled card-option">
+                            <li class="first-opt"><i class="feather icon-chevron-left open-card-option"></i></li>
+                            <li><i class="feather icon-maximize full-card"></i></li>
+                            <li><i class="feather icon-minus minimize-card"></i></li>
+                            <li><i class="feather icon-refresh-cw reload-card"></i></li>
+                            <li><i class="feather icon-trash close-card"></i></li>
+                            <li><i class="feather icon-chevron-left open-card-option"></i></li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="col-auto">
-                    <i class="fas fa-eye bg-c-blue"></i>
-                </div>
+            <div class="card-block">
+        <div class="table-responsive">
+            {% if object_list %}
+            <table class="table table-hover m-b-0">
+                <thead>
+                    <tr>
+                        <th>Descrição</th>
+                        <th class="text-center font-weight-bold">Estoque Atual</th>
+                        <th class="text-center font-weight-bold">Estoque Minimo</th>
+                        <th>Categoria</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for item in object_list %}
+                        <tr>
+                            <td class="font-weight-bold"> <a href="{% url 'product:detail_product' item.pk %} ">{{ item.ProdutctsName }}</a></td>
+                            <td class="text-center font-weight-bold">{{ item.CurrentStock }}</td>
+                            <td class="text-center font-weight-bold">{{ item.MinimumStock }} <label class="label label-success">Ok</label></td>
+                            <td>Materiais de Escritório</td>
+                        </tr>
+                    {% endfor %}                    
+                    </tbody>
+            </table>
+            
+            {% else %}
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="card text-white card-danger">
+                    <div class="card-header">Alerta</div>
+                        <div class="card-body">
+                        <h5 class="card-title">Não existem produtos cadastrados!</h5>
+                        <p class="card-text">Incie o cadastro dos produtos conforme indicado na Documentação do <a href="#">Manual</a></p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="col-xl-4 col-md-6">
-        <div class="card comp-card">
-            <div class="card-body">
-                <div class="row align-items-center">
-                <div class="col">
-                    <h6 class="m-b-25">Goal</h6>
-                    <h3 class="f-w-700 text-c-green">30,564</h3>
-                    <p class="m-b-0">May 23 - June 01 (2017)</p>
-                </div>
-                <div class="col-auto">
-                    <i class="fas fa-bullseye bg-c-green"></i>
-                </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-xl-4 col-md-6">
-        <div class="card comp-card">
-            <div class="card-body">
-                <div class="row align-items-center">
-                <div class="col">
-                    <h6 class="m-b-25">Impact</h6>
-                    <h3 class="f-w-700 text-c-yellow">42.6%</h3>
-                    <p class="m-b-0">May 23 - June 01 (2017)</p>
-                </div>
-                <div class="col-auto">
-                    <i class="fas fa-hand-paper bg-c-yellow"></i>
-                </div>
-                </div>
-            </div>
+            {% endif %}
+
         </div>
     </div>
 </div>
