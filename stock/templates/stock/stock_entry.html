@@ -27,34 +27,38 @@
                     <tr>
                         <th class="text-center font-weight-bold">ID</th>
                         <th class="text-center font-weight-bold">Responsável</th>
-                        <th class="text-center font-weight-bold">Status</th>
                         <th class="text-center font-weight-bold">Data</th>
+                        <th class="text-center font-weight-bold">Detalhes</th>
                     </tr>
                     </thead>
                     <tbody>
                     {% for item in stock %}
+                    
                         <tr>
-                            {% comment %} <td class="font-weight-bold"> 
-                                <a href="{% url 'product:detail_product' item.pk %} ">
-                                    {{ item.ProdutctsName }}
-                                </a>
-                            </td> {% endcomment %}
                             <td class="text-center font-weight-bold">
                                 {{ item.id }}
                             </td>
                             <td class="text-center font-weight-bold">
                                 {{ item.ResponsibleUser }} 
                             </td>
-                            <td class="text-center font-weight-bold">
-                                <label class="label f-24 label-success">
+                            {% comment %} <td class="text-center font-weight-bold">                            
+                                <label class="label f-24 label-success">                                
                                     <span class="f-18">{{ item.get_MovementStatus_display }}</span> 
                                 </label>                            
-                            </td>
+                            </td> {% endcomment %}
                             <td class="text-center font-weight-bold">
-                                    {{ item.CreationDate }} 
-
-                            </td>                             
+                                    {{ item.CreationDate }}
+                            </td>
+                            <td class="text-center">
+                            <a href="{% url 'stock:stock_entry_detail' item.pk %} " 
+                            class="btn btn-sm waves-effect waves-light btn-primary btn-outline-primary">
+                                <i class="icofont icofont-eye-alt"></i>
+                                Detalhes
+                            </a>  
+                                
+                            </td>                           
                         </tr>
+                        
                     {% endfor %}                    
                     </tbody>
             </table>
@@ -72,5 +76,5 @@
             {% endif %}
         </div>
     </div>
-
 {% endblock content %}
+

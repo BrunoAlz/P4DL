@@ -11,5 +11,11 @@ def stock_entry(request):
     }
     return render(request, template_name, context)
 
-def __str__(self):
-    return self.MovementStatus
+
+def stock_entry_detail(request, pk):
+    template_name = 'stock/stock_entry_detail.html'
+    obj = Stock.objects.get(pk=pk)
+    context = {
+        'stockDetail': obj
+    }
+    return render(request, template_name, context)
