@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card table-card">
+            <div class="card-header">
+                <div class="card-header-right">
+                    <ul class="list-unstyled card-option">
+                        <li class="first-opt"><i class="feather icon-chevron-left open-card-option"></i></li>
+                        <li><i class="feather icon-maximize full-card"></i></li>
+                        <li><i class="feather icon-minus minimize-card"></i></li>
+                        <li><i class="feather icon-refresh-cw reload-card"></i></li>
+                        <li><i class="feather icon-trash close-card"></i></li>
+                        <li><i class="feather icon-chevron-left open-card-option"></i></li>
+                    </ul>
+                </div>
+            </div>
+        <div class="card-block">
+    <div class="table-responsive">
+        {% if stock %}
+        <table class="table table-sm table-hover m-b-0">
+            <thead>
+                <tr>
+                    <th class="text-center font-weight-bold">ID</th>
+                    <th class="text-center font-weight-bold">Responsável</th>
+                    <th class="text-center font-weight-bold">Status</th>
+                    <th class="text-center font-weight-bold">Data</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for item in stock %}
+                    <tr>
+                        {% comment %} <td class="font-weight-bold"> 
+                            <a href="{% url 'product:detail_product' item.pk %} ">
+                                {{ item.ProdutctsName }}
+                            </a>
+                        </td> {% endcomment %}
+                        <td class="text-center font-weight-bold">
+                            {{ item.id }}
+                        </td>
+                        <td class="text-center font-weight-bold">
+                            {{ item.ResponsibleUser }} 
+                        </td>
+                        <td class="text-center font-weight-bold">
+                            <label class="label f-24 label-success">
+                                <span class="f-18">{{ item.get_MovementStatus_display }}</span> 
+                            </label>                
+                        </td>
+                        <td class="text-center font-weight-bold">
+                            {{ item.CreationDate }} 
+                        </td>                             
+                    </tr>
+                {% endfor %}                    
+                </tbody>
+        </table>
+        
+        {% else %}
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="card text-white card-danger">
+                <div class="card-header">Alerta</div>
+                    <div class="card-body">
+                    <h5 class="card-title">Não existem produtos cadastrados!</h5>
+                    <p class="card-text">Incie o cadastro dos produtos conforme indicado na Documentação do <a href="#">Manual</a></p>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock content %}

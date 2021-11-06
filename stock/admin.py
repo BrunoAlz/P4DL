@@ -20,7 +20,6 @@ class StockAdmin(admin.ModelAdmin):
     atributos para melhorar a interação com o django admin
     """
     inlines = (StockItemsInline,)
-    list_display = ('ResponsibleUser', 'MovementStatus', 'CreationDate',)
+    list_display = ('id','ResponsibleUser', 'MovementStatus', 'CreationDate',)
     search_fields = ('ResponsibleUser',)
     list_filter = ('MovementStatus',)
-    date_hierarchy = 'CreationDate'

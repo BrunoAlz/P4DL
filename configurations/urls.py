@@ -8,5 +8,6 @@ urlpatterns = [
     # Toda vez que formos para a RAIZ do SITE Chamaremos o CORE.URLS
     path('', include('core.urls')), 
     path('product/', include('product.urls')), 
+    path('stock/', include('stock.urls')), 
     path('admin/', admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

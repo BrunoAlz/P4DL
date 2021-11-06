@@ -20,7 +20,7 @@ class Stock(TimeStampedModel):
         verbose_name_plural = ("Estoque")
 
     def __str__(self) -> str:
-        return str(self.pk)
+        return f'{self.ResponsibleUser}'
 
 
 class StockItems(models.Model):
