@@ -96,6 +96,7 @@
                         <th class="text-center font-weight-bold">Estoque Minimo</th>
                         <th>Gênero</th>
                         <th>Grupo</th>
+                        <th>Ações</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -106,6 +107,13 @@
                             <td class="text-center font-weight-bold">{{ item.MinimumStock }} <label class="label label-success">Ok</label></td>
                             <td>{{ item.FkGenre }}</td>
                             <td>{{ item.FkGroup }}</td>
+                            <td><a href=" {% url 'product:edit_product' item.pk %} ">
+                                    <i class="icon feather icon-edit f-w-600 f-16 m-r-15 text-c-green"></i>
+                                </a>
+                                <a href="#!">
+                                    <i class="feather icon-trash-2 f-w-600 f-16 text-c-red"></i>
+                                </a>
+                            </td>
                         </tr>
                     {% endfor %}                    
                     </tbody>
