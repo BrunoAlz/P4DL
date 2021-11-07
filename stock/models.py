@@ -22,8 +22,8 @@ class Stock(TimeStampedModel):
         verbose_name = ("Estoque")
         verbose_name_plural = ("Estoque")
 
-    def __str__(self) -> str:
-        return f'{self.ResponsibleUser}'
+    def __str__(self):        
+        return '{} --- {}'.format(self.pk, self.created.strftime('%d-%m-%Y'))
 
     def get_absolute_url(self):
         return reverse("stock:stock_entry_detail", kwargs={"pk": self.pk})

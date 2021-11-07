@@ -1,7 +1,11 @@
-from django.shortcuts import render
+from django.forms.models import inlineformset_factory
+from django.http.response import HttpResponseRedirect
+from django.shortcuts import render, resolve_url
 
-from utils.constants import MOVIMENT
-from .models import Stock
+from .forms import StockForm, StockItemsForm
+
+from .models import Stock, StockItems
+
 
 def stock_entry(request):
     template_name = 'stock/stock_entry.html'
@@ -23,6 +27,36 @@ def stock_entry_detail(request, pk):
 
 def stock_entry_add(request):
     template_name = 'stock/stock_entry_form.html'
-    return render(request, template_name)
+    stock_form = Stock()
+    stock_item_formset = inlineformset_factory(
+        Stock,
+        StockItems,
+        form=StockItemsForm,
+        extra=0,
+        min_num=1,
+        validate_min=True
+    )
+    if request.method == 'POST':
+        form = StockForm(
+            request.POST,
+            instance=stock_form,
+            prefix='main')
+        formset = stock_item_formset(
+            request.POST,
+            instance=stock_form,
+            prefix='estoque'
+        )
+        if form.is_valid() and formset.is_valid():
+            form = form.save()
+            formset.save()
+            url = 'stock:stock_entry_detail'
+            return HttpResponseRedirect(resolve_url(url, form.pk))
+    else:
+        form = StockForm(instance=stock_form, prefix='main')
+        formset = stock_item_formset(instance=stock_form, prefix='estoque')
 
-
+    context = {
+        'form': form,
+        'formset': formset
+    }
+    return render(request, template_name, context)
