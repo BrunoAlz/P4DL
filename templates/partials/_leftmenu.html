@@ -3,99 +3,154 @@
 <nav class="pcoded-navbar">
     <div class="nav-list">
         <div class="pcoded-inner-navbar main-menu">
-            <div class="pcoded-navigation-label">Navegação</div>
+            <div class="pcoded-navigation-label">Principal</div>
             <ul class="pcoded-item pcoded-left-item">
-                <li class="pcoded-hasmenu active pcoded-trigger">
+                <li class="pcoded-hasmenu">
                     <a href="javascript:void(0)" class="waves-effect waves-dark">
                     <span class="pcoded-micon"><i class="feather icon-home"></i></span>
-                    <span class="pcoded-mtext">Dashboards</span>                    
+                    <span class="pcoded-mtext">Homepage</span>
                     </a>
                     <ul class="pcoded-submenu">
-                    <li class="pcoded-hasmenu pcoded-trigger">
-                        <a href="{% url 'core:index' %}" class="waves-effect waves-dark">
-                        <span class="pcoded-mtext">Dashboard Geral</span>
-                        </a>
-                    </li>
-                    <li class="pcoded-hasmenu pcoded-trigger">
-                        <a href="dashboard-analytics.html" class="waves-effect waves-dark">
-                        <span class="pcoded-mtext">Dashboard Analítico</span>
-                        <!--
-                        <span class="pcoded-badge label label-info ">NEW</span>
-                        -->
-                        </a>
-                    </li>
+                        <li class="">
+                            <a href="{% url 'core:index' %}" class="waves-effect waves-dark">
+                            <span class="pcoded-mtext">Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="dashboard-crm.html" class="waves-effect waves-dark">
+                            <span class="pcoded-mtext">Dashboard Analítico</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>                
+            </ul>
+            <ul class="pcoded-item pcoded-left-item">
+                <li class="pcoded-hasmenu">
+                    <a href="javascript:void(0)" class="waves-effect waves-dark">
+                    <span class="pcoded-micon"><i class="feather icon-home"></i></span>
+                    <span class="pcoded-mtext">Estoque</span>
+                    </a>
+                    <ul class="pcoded-submenu">
+                        <li class="">
+                            <a href="{% url 'stock:stock_entry' %}" class="waves-effect waves-dark">
+                            <span class="pcoded-mtext">Ver Estoque</span>
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="{% url 'stock:stock_entry_add' %} " class="waves-effect waves-dark">
+                            <span class="pcoded-mtext">Realizar Entrada</span>
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="dashboard-crm.html" class="waves-effect waves-dark">
+                            <span class="pcoded-mtext">Realizar Saída</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>                
+            </ul> 
+            <div class="pcoded-navigation-label">Configurações</div>
+            <ul class="pcoded-item pcoded-left-item">
+                <li class="pcoded-hasmenu">
+                    <a href="javascript:void(0)" class="waves-effect waves-dark">
+                    <span class="pcoded-micon">
+                    <i class="feather icon-box"></i>
+                    </span>
+                    <span class="pcoded-mtext">Produtos</span>
+                    </a>
+                    <ul class="pcoded-submenu">
+                        <li class="">
+                            <a href=" {% url 'product:list_product' %} " class="waves-effect waves-dark">
+                            <span class="pcoded-mtext">Ver Todos</span>
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="breadcrumb.html" class="waves-effect waves-dark">
+                            <span class="pcoded-mtext">Adicionar Novo</span>
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="breadcrumb.html" class="waves-effect waves-dark">
+                            <span class="pcoded-mtext">Gêneros / Grupos / Marcas</span>
+
+                            </a>
+                        </li>
+                    </ul> 
+
+                </li>
+                <li class="pcoded-hasmenu">
+                    <a href="javascript:void(0)" class="waves-effect waves-dark">
+                    <span class="pcoded-micon">
+                    <i class="feather icon-users"></i>
+                    </span>
+                    <span class="pcoded-mtext">Usuários</span>
+                    </a>
+                    <ul class="pcoded-submenu">
+                        <li class=" ">
+                            <a href="draggable.html" class="waves-effect waves-dark">
+                            <span class="pcoded-mtext">Ver todos</span>
+                            </a>
+                        </li>
+                        <li class=" ">
+                            <a href="bs-grid.html" class="waves-effect waves-dark">
+                            <span class="pcoded-mtext">Adicionar Novo</span>
+                            </a>
+                        </li>                        
                     </ul>
                 </li>
                 <li class="pcoded-hasmenu">
                     <a href="javascript:void(0)" class="waves-effect waves-dark">
-                    <span class="pcoded-micon"><i class="feather icon-box"></i></span>
-                    <span class="pcoded-mtext">Estoques</span>
+                    <span class="pcoded-micon">
+                        <i class="feather icon-shopping-cart"></i>
+                    </span>
+                    <span class="pcoded-mtext">Fornecedores</span>
                     </a>
                     <ul class="pcoded-submenu">
-                    <li class="">
-                        <a href=" {% url 'stock:stock_entry' %} " class="waves-effect waves-dark">
-                        <span class="pcoded-mtext">Entrada Material</span>
-                        </a>
-                    </li>
-                    <li class="">
-                        <a href="menu-bottom.html" class="waves-effect waves-dark">
-                        <span class="pcoded-mtext">Distribuição</span>
-                        </a>
-                    </li>
-                    <li class="">
-                        <a href="menu-bottom.html" class="waves-effect waves-dark">
-                        <span class="pcoded-mtext">Manusear Estoques</span>
-                        </a>
-                    </li>
-                    
+                        <li class=" ">
+                            <a href="draggable.html" class="waves-effect waves-dark">
+                            <span class="pcoded-mtext">Ver todos</span>
+                            </a>
+                        </li>
+                        <li class=" ">
+                            <a href="bs-grid.html" class="waves-effect waves-dark">
+                            <span class="pcoded-mtext">Adicionar Novo</span>
+                            </a>
+                        </li>                        
                     </ul>
                 </li>
-                
-                <li class="pcoded-hasmenu">
+
+
+            </ul>
+            <div class="pcoded-navigation-label">Dados Pessoais</div>
+            <ul class="pcoded-item pcoded-left-item">
+                <li class="pcoded-hasmenu ">
                     <a href="javascript:void(0)" class="waves-effect waves-dark">
                     <span class="pcoded-micon">
-                    <i class="feather icon-sliders"></i>
+                    <i class="feather icon-unlock"></i>
                     </span>
-                    <span class="pcoded-mtext">Configurações</span>
+                    <span class="pcoded-mtext">Minha Conta</span>
                     </a>
                     <ul class="pcoded-submenu">
-                    <li class="">
-                        <a href="widget-statistic.html" class="waves-effect waves-dark">
-                        <span class="pcoded-mtext">Adicionar Fornecedor</span>
-                        </a>
-                    </li>
-                    <li class="">
-                        <a href="widget-data.html" class="waves-effect waves-dark">
-                        <span class="pcoded-mtext">Adcionar Marca</span>
-                        
-                        </a>
-                    </li>
-                    <li class="">
-                        <a href=" {% url 'product:add_product' %} " class="waves-effect waves-dark">
-                        <span class="pcoded-mtext">Adcionar Produto</span>
-                        </a>
-                    </li>
-                    <li class="">
-                        <a href="widget-chart.html" class="waves-effect waves-dark">
-                        <span class="pcoded-mtext">Adcionar Usuários</span>
-                        </a>
-                    </li>
+                        <li class="">
+                            <a href="auth-sign-in-social.html" class="waves-effect waves-dark">
+                            <span class="pcoded-mtext">Perfil</span>
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="auth-lock-screen.html" target="_blank" class="waves-effect waves-dark">
+                            <span class="pcoded-mtext">Tela de Bloqueio</span>
+                            </a>
+                        </li>
                     </ul>
-                </li>
-                <li class="">
-                    <a href="navbar-light.html" class="waves-effect waves-dark">
-                    <span class="pcoded-micon">
-                    <i class="feather icon-menu"></i>
-                    </span>
-                    <span class="pcoded-mtext">Histórico</span>
-                    </a>
-                </li>
-            </ul>          
+                </li>    
+            </ul>
         </div>
     </div>
 </nav>
+
 <div class="pcoded-content">
     <div class="pcoded-inner-content">
     <div class="main-body">
         <div class="page-wrapper">
             <div class="page-body">
+

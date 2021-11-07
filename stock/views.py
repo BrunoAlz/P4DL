@@ -19,3 +19,10 @@ def stock_entry_detail(request, pk):
         'stockDetail': obj
     }
     return render(request, template_name, context)
+
+
+def stock_entry_add(request):
+    template_name = 'stock/stock_entry_form.html'
+    return render(request, template_name)
+
+
